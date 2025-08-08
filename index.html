@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าเว็บรับรางวัล</title>
-    <!-- Tailwind CSS CDN for styling -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>รับสิทธิ์รางวัลด่วน!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+      body {
+        font-family: 'Kanit', sans-serif;
+      }
     </style>
-</head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white rounded-xl shadow-lg p-8 max-w-lg w-full text-center space-y-6 transform transition-all duration-300 hover:scale-105">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-red-600 animate-pulse">
-            ยินดีด้วย! คุณคือ <span class="underline">ผู้โชคดี</span> คนต่อไป!
-        </h1>
-        <p class="text-lg md:text-xl text-gray-700 font-semibold leading-relaxed">
-            ขอแสดงความยินดี! คุณได้รับ <span class="font-bold text-red-600">รับรางวัล</span> มูลค่า 1,000,000 บาท!
-        </p>
-        <p class="text-md text-gray-600 leading-relaxed">
-            เพื่อยืนยันสิทธิ์ กรุณา <span class="font-bold text-red-600">โอนเงิน</span> ค่าธรรมเนียมเพียง 100 บาท <span class="font-bold text-red-600">ด่วน</span> ภายในวันนี้
-        </p>
-        <p class="text-sm text-gray-500">
-            เราต้องการ <span class="font-bold text-red-600">ข้อมูลส่วนตัว</span> ของท่านเพื่อจัดส่งรางวัลให้
-        </p>
-        <a href="#" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:scale-110">
-            ยืนยันสิทธิ์ตอนนี้!
-        </a>
+  </head>
+  <body class="bg-gradient-to-b from-red-50 to-white min-h-screen flex items-center justify-center px-4 py-6">
+    <div class="bg-white shadow-xl rounded-3xl w-full max-w-md sm:max-w-lg p-6 space-y-5 text-center">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-red-600 animate-bounce">
+        🎁 ยินดีด้วย!
+      </h1>
+
+      <p class="text-lg sm:text-xl font-medium text-gray-800">
+        คุณคือผู้โชคดี <br class="block sm:hidden" />
+        รับรางวัลเงินสดมูลค่า <span class="text-red-600 font-bold">1,000,000 บาท</span>
+      </p>
+
+      <p class="text-sm text-gray-600">
+        กรุณาชำระค่าดำเนินการเพียง <span class="text-red-500 font-semibold">100 บาท</span> เพื่อรับสิทธิ์ของคุณ
+      </p>
+
+      <p class="text-sm text-red-500 font-medium">
+        ⚠️ ต้องยืนยันภายใน <span class="font-bold">วันนี้เท่านั้น!</span>
+      </p>
+
+      <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-200 ease-in-out transform hover:scale-105">
+        📲 ยืนยันสิทธิ์ตอนนี้
+      </button>
+
+      <div class="text-xs text-gray-400 mt-6 border-t pt-4">
+        🔒 เว็บไซต์นี้เป็น <span class="text-yellow-500 font-semibold">mockup</span> สำหรับการทดสอบระบบ AI หรือระบบป้องกันภัยไซเบอร์เท่านั้น ไม่ใช่เว็บไซต์จริง กรุณาอย่าทำธุรกรรมใดๆ
+      </div>
     </div>
-</body>
+  </body>
 </html>
