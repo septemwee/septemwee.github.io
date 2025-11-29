@@ -44,7 +44,19 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
+    /* MODIFICATION:
+      - เพิ่ม transition สำหรับเงาตอน scroll 
+    */
+    transition: box-shadow 0.3s ease;
 }
+
+/* MODIFICATION:
+  - เพิ่ม class นี้สำหรับใส่เงาเมื่อเลื่อนจอ (JS จะเพิ่มให้)
+*/
+.navbar.scrolled {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
 
 .navbar .container {
     display: flex;
@@ -78,6 +90,21 @@ body {
     color: var(--primary-color);
 }
 
+/* MODIFICATION:
+  - เพิ่มสไตล์สำหรับปุ่ม Hamburger (ที่อยู่ใน HTML)
+  - ซ่อนไว้บนจอใหญ่
+*/
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger i {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+
 /* --- Button --- */
 .btn {
     display: inline-block;
@@ -102,6 +129,11 @@ body {
 /* --- Hero Section --- */
 .hero {
     background-color: var(--bg-color);
+    /* NOTE:
+      - padding-top: 140px ของคุณ 
+      - ทำหน้าที่เว้นที่ให้ navbar ที่ fix ไว้อยู่แล้ว
+      - ซึ่งถูกต้องครับ
+    */
     padding: 140px 0 80px 0;
     display: flex;
     align-items: center;
@@ -312,6 +344,17 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
+/* NOTE: นี่คือ class สำหรับ 4-grid ที่เคยให้ไป
+  ถ้าคุณมี 4 ใบ ให้ใช้ class="certificate-grid-custom" ใน HTML
+*/
+.certificate-grid-custom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px; /* จำกัดความกว้างไม่ให้ใหญ่ไป */
+    margin: 0 auto; /* จัดกลาง */
+}
+
 .achievement-card {
     background-color: #fff;
     border: 1px solid var(--border-color);
@@ -352,6 +395,12 @@ section {
 }
 
 /* --- Core Competencies (Skills) --- */
+/*
+  NOTE: 
+  - โค้ดส่วนนี้ยังอยู่
+  - ถ้าคุณไม่ต้องการส่วนนี้ (การ์ด 3 อัน) ให้ลบใน HTML
+  - ถ้าคุณต้องการ ก็ใช้ได้เลย
+*/
 .competencies-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -460,6 +509,15 @@ section {
     margin: 0;
 }
 
+.hackathon-flipper {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.hackathon-flipper:hover {
+    opacity: 0.8;
+}
+
 /* --- Footer --- */
 footer {
     padding: 2rem 0;
@@ -495,9 +553,45 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* MODIFICATION:
+      - นี่คือโค้ดสำหรับ Navbar Responsive ที่เพิ่มเข้ามา
+      - แทนที่ display: none; แบบเดิม
+    */
     .nav-menu {
-        display: none;
+        position: fixed;
+        /* คำนวณความสูง navbar: 
+           padding (1rem*2) + font (1.5rem) ~ 60-70px
+           ผมจะใช้ค่าประมาณ 65px 
+        */
+        top: 65px; /* ปรับค่่นี้ให้ตรงกับความสูง navbar จริง */
+        left: -100%; /* ซ่อนไปทางซ้าย */
+        width: 100%;
+        height: calc(100vh - 65px);
+        background-color: var(--bg-color);
+        
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        
+        transition: left 0.3s ease-in-out;
     }
+
+    /* Class นี้ JS จะเพิ่มให้ตอนคลิกปุ่ม */
+    .nav-menu.active {
+        left: 0; /* แสดงเมนู */
+    }
+
+    .nav-menu a {
+        font-size: 1.5rem; /* ขยายลิงก์ให้กดง่าย */
+    }
+
+    /* แสดงปุ่ม Hamburger บนจอมือถือ */
+    .hamburger {
+        display: block;
+    }
+
+    /* สไตล์เดิมของคุณสำหรับลดขนาด font */
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -506,5 +600,11 @@ footer {
     }
     .section-title h2 {
         font-size: 2rem;
+    }
+
+    /* สไตล์สำหรับ .certificate-grid-custom บนจอมือถือ */
+    .certificate-grid-custom {
+        grid-template-columns: 1fr;
+        max-width: 100%;
     }
 }
